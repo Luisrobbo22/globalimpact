@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:include="_template :: head"></head>
+<body>
+
+    <header th:include="_template :: header"></header>
+
+        <section class="card form">
+            <h2> Cadastrar Cliente</h2>
+
+            <form class="form" th:action="@{/cliente}" method="post" th:object="${cliente}">
+                <label for="nome">Nome</label>
+                <input
+                    type="text"
+                    name="nome"
+                    id="nome"
+                    th:field="*{nome}"
+                    th:classappend="${#fields.hasErros('nome')}?invalid}"
+                    autocomplete="off"
+                />
+                <span class="error" th:errors="*{nome}"></span>
+
+
+                <div class="form-buttons">
+                    <a href="/cliente" class="button">Cancelar</a>
+                    <button class="button primary">Salvar</button>
+                </div>
+
+            </form>
+        </section>
+</body>
+</html>

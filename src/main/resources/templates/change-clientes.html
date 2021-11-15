@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:include="_template :: head"></head>
+
+<body>
+
+<header th:include="_template :: header"></header>
+
+<div class="alert" th:if="${message != null}" th:text="${message}"></div>
+
+<div class="card">
+  <nav th:include="_template :: menu('cliente')"></nav>
+
+
+
+  <section class="card form">
+    <h2>Atualizacao Clientes</h2>
+
+    <form class="form" th:action="@{/cliente/update}" method="post" th:object="${cliente}">
+      <label for="codigo" hidden="true">Código</label>
+      <input
+              type="number"
+              name="codigo"
+              id="codigo"
+              value="${cliente.codigo}"
+              th:field="*{codigo}"
+<!--              th:classappend="${#fields.hasErrors('codigo')}?invalid"-->
+              autocomplete="off"
+              hidden="true"
+      />
+      <span class="error" th:errors="*{codigo}"></span>
+
+
+      <label for="nome">Nome</label>
+      <input
+              type="text"
+              name="nome"
+              id="nome"
+              value="${cliente.nome}"
+              th:field="*{nome}"
+              th:classappend="${#fields.hasErrors('nome')}?invalid"
+              autocomplete="off"
+      />
+      <span class="error" th:errors="*{nome}"></span>
+
+      <label for="descricao">Descrição</label>
+      <input
+              type="text"
+              name="descricao"
+              id="descricao"
+              value="${cliente.descricao}"
+              th:field="*{descricao}"
+              th:classappend="${#fields.hasErrors('descricao')}?invalid"
+              autocomplete="off"
+      />
+      <span class="error" th:errors="*{descricao}"></span>
+
+
+      <label for="email">Contato</label>
+      <input
+              type="email"
+              name="email"
+              id="email"
+              value="${cliente.contato}"
+              th:field="*{contato}"
+              th:classappend="${#fields.hasErrors('contato')}?invalid"
+              autocomplete="off"
+
+      />
+      <span class="error"  th:errors="*{contato}"></span>
+
+      <label for="status">Status</label>
+      <input
+              type="text"
+              name="status"
+              id="status"
+              value="${cliente.status}"
+              th:field="*{status}"
+              th:classappend="${#fields.hasErrors('status')}?invalid"
+              autocomplete="off"
+      />
+      <span class="error" th:errors="*{status}"></span>
+
+      <div class="form-buttons">
+        <button class="button primary">Atualizar</button>
+      </div>
+
+    </form>
+  </section>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

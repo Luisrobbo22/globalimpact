@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root{
+	--primary:  #FF7178;
+	--secundary: #7F00FF;
+}
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	text-decoration: none;
+	color: #FFF;
+}
+
+li {
+    list-style: none;
+}
+
+body{
+	height: 100vh;
+	background: linear-gradient(72.72deg, #4B0080 0.79%, #6F0080 100%);
+	font-family: Poppins;
+	color: #FFF;
+}
+
+header{
+	display: flex;	
+	justify-content: space-between;
+}
+
+header .login-info{
+	margin: 1rem;
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+}
+
+header .login-info img{
+	margin: 1rem;	
+}
+
+
+header
+
+h1{
+	font-weight: 600;
+	font-size: 4rem;
+	color: var(--primary);
+	text-shadow: 0px 0px 10px var(--primary);
+}
+
+.card{
+	margin: 0 4rem;
+	background: linear-gradient(153.66deg, rgba(255, 255, 255, 0.8) -1.09%, rgba(255, 255, 255, 0.08) 100%, rgba(255, 255, 255, 0.08) 100%);
+	backdrop-filter: blur(24px);
+	padding: 3rem;
+	border-radius: 10px;
+}
+
+.card h2{
+	font-weight: 600;
+	font-size: 1.5rem;
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.button,
+button{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	background: #7F00FF;
+	border-radius: 10px;
+	font-family: Poppins;
+	font-size: 1.1rem;
+	text-align: center;
+	border: 0;
+	padding: 0.2rem 2rem;	
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.button.primary,
+button.primary{
+	background: var(--primary);
+	box-shadow: 0px 0px 7px var(--primary);
+}
+
+button.icon,
+.button.icon{
+	padding: .5rem;
+}
+
+.alert {
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 1rem;
+    background: linear-gradient(147.57deg, rgba(0, 255, 102, 0.6) 0%, rgba(0, 255, 102, 0.06) 100%);
+    backdrop-filter: blur(61px);
+    border-radius: 10px;
+}
+
+.alert.error{
+	background: linear-gradient(147.57deg, rgba(255, 0, 102, 0.6) 0%, rgba(255, 0, 102, 0.06) 100%);
+}
+
+.avatar{
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+}
