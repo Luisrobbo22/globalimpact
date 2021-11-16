@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:include="_template :: head"></head>
+<body>
+
+    <header th:include="_template :: header"></header>
+
+        <section class="card form">
+            <h2> Cadastro de Fornecedor</h2>
+
+            <form class="form" th:action="@{/fornecedor}" method="post" th:object="${fornecedor}">
+                <label for="nome">Nome</label>
+                <input
+                    type="text"
+                    name="nome"
+                    id="nome"
+                    th:field="*{nome}"
+                    th:classappend="${#fields.hasErrors('nome')}? invalid"
+                    autocomplete="off"
+                />
+                <span class="error" th:errors="*{nome}"></span>
+
+                <label for="descricao">Descricao</label>
+                <input
+                    type="text"
+                    name="descricao"
+                    id="descricao"
+                    th:field="*{descricao}"
+                    th:classappend="${#fields.hasErrors('descricao')}? invalid"
+                    autocomplete="off"
+                />
+                <span class="error" th:errors="*{descricao}"></span>
+
+                <label for="contato">Contato</label>
+                <input
+                        type="text"
+                        name="contato"
+                        id="contato"
+                        th:field="*{contato}"
+                        th:classappend="${#fields.hasErrors('contato')}? invalid"
+                        autocomplete="off"
+                />
+                <span class="error" th:errors="*{contato}"></span>
+
+                <label for="tfor">Tipo de Fornecedor</label>
+                <input
+                        type="text"
+                        name="tipoFornecedor"
+                        id="tfor"
+                        th:field="*{tipoFornecedor}"
+                        th:classappend="${#fields.hasErrors('tipoFornecedor')}? invalid"
+                        autocomplete="off"
+                />
+                <span class="error" th:errors="*{tipoFornecedor}"></span>
+
+                <h2> Cadastrar Produtos a ser doado</h2>
+
+                <label for="pdescres">Descrição resumida</label>
+                <input
+                        type="text"
+                        name="produtos.descricaoResumida"
+                        id="pdescres"
+                        th:field="*{produtos.descricaoResumida}"
+                        th:classappend="${#fields.hasErrors('produtos.descricaoResumida')}? invalid"
+                        autocomplete="off"
+                />
+                <span class="error" th:errors="*{produtos.descricaoResumida}"></span>
+
+                <label for="pdesc">Descrição</label>
+                <input
+                        type="text"
+                        name="produtos.descricao"
+                        id="pdesc"
+                        th:field="*{produtos.descricao}"
+                        th:classappend="${#fields.hasErrors('produtos.descricao')}? invalid"
+                        autocomplete="off"
+                />
+                <span class="error" th:errors="*{produtos.descricao}"></span>
+
+                <label for="tp">Tipo do Produto</label>
+                <input
+                        type="text"
+                        name="produtos.tipoProduto"
+                        id="tp"
+                        th:field="*{produtos.tipoProduto}"
+                        th:classappend="${#fields.hasErrors('produtos.tipoProduto')}? invalid"
+                        autocomplete="off"
+                />
+                <span class="error" th:errors="*{produtos.tipoProduto}"></span>
+
+                <label for="um">Unidade de Medida</label>
+                <input
+                        type="text"
+                        name="produtos.unidadeMedida"
+                        id="tp"
+                        th:field="*{produtos.unidadeMedida}"
+                        th:classappend="${#fields.hasErrors('produtos.unidadeMedida')}? invalid"
+                        autocomplete="off"
+                />
+                <span class="error" th:errors="*{produtos.unidadeMedida}"></span>
+
+
+
+                <div class="form-buttons">
+                    <a href="/cliente" class="button">Cancelar</a>
+                    <button class="button primary">Salvar</button>
+                </div>
+
+            </form>
+        </section>
+</body>
+</html>

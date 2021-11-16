@@ -38,8 +38,7 @@ public class ProdutoServiceImpl implements ProdutoService {
         return produtos;
     }
 
-    @Override
-    public Optional<Produto> findById(Long id) {
-        return repository.findById(id);
+    public Produto findByNome(String descricaoResumida) {
+        return repository.findByDescricaoResumidaContaining(descricaoResumida);
     }
 }

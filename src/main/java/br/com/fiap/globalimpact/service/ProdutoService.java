@@ -1,6 +1,7 @@
 package br.com.fiap.globalimpact.service;
 
 
+import br.com.fiap.globalimpact.model.Cliente;
 import br.com.fiap.globalimpact.model.Produto;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +17,5 @@ public interface ProdutoService {
 
     List<Produto> remove(Long id);
 
-    Optional<Produto> findById(Long id);
+    Produto findByNome(String descricaoResumida);
 }

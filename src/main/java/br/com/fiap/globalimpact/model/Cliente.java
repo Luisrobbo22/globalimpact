@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +18,7 @@ public class Cliente implements Serializable {
     private static final long serialVersionUID = 2196147149702990605L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
     private String nome;
@@ -26,9 +29,4 @@ public class Cliente implements Serializable {
 
     private String status;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "codigo",
-        joinColumns = @JoinColumn(name = "codigo_cliente"),
-        inverseJoinColumns = @JoinColumn(name = "codigo_produto"))
-    private List<Produto> produtos;
 }

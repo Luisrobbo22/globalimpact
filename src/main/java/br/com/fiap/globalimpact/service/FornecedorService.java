@@ -15,7 +15,4 @@ public interface FornecedorService {
 
     List<Fornecedor> remove(Long id);
 
-    Optional<Fornecedor> findById(Long id);
-
-    List<Fornecedor> findByNome(String nome);
 }

@@ -13,7 +13,4 @@ public interface ClienteService {
 
     List<Cliente> remove(Long id);
 
-    Optional<Cliente> findById(Long id);
-
-    List<Cliente> findByNome(String nome);
 }

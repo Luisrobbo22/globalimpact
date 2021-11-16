@@ -1,6 +1,5 @@
 package br.com.fiap.globalimpact.repository;
 
-import br.com.fiap.globalimpact.model.Cliente;
 import br.com.fiap.globalimpact.model.Fornecedor;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,8 +1,10 @@
 package br.com.fiap.globalimpact.service.impl;
 
 import br.com.fiap.globalimpact.model.Fornecedor;
+import br.com.fiap.globalimpact.model.Produto;
 import br.com.fiap.globalimpact.repository.FornecedorRepository;
 import br.com.fiap.globalimpact.service.FornecedorService;
+import br.com.fiap.globalimpact.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +17,21 @@ public class FornecedorServiceIml implements FornecedorService {
     @Autowired
     private FornecedorRepository repository;
 
+    @Autowired
+    private ProdutoService produtoService;
+
     @Override
     public void create(Fornecedor fornecedor) {
+        Produto produto = null;
+        if (hasProduto(fornecedor.getProdutos())) {
+            produto = fornecedor.getProdutos();
+            produtoService.create(produto);
+            produto = produtoService.findByNome(fornecedor.getProdutos().getDescricaoResumida());
+            fornecedor.getProdutos().setCodigo(produto.getCodigo());
+        } else {
+            fornecedor.setProdutos(null);
+        }
+
         repository.save(fornecedor);
 
     }
@@ -40,13 +55,11 @@ public class FornecedorServiceIml implements FornecedorService {
         return fornecedores;
     }
 
-    @Override
-    public Optional<Fornecedor> findById(Long id) {
-        return repository.findById(id);
-    }
-
-    @Override
-    public List<Fornecedor> findByNome(String nome) {
-        return repository.findByNomeContaining(nome);
+    private boolean hasProduto(Produto produto) {
+        if (produto.getDescricaoResumida().equals("") &&
+            produto.getDescricao().equals("")) {
+            return false;
+        }
+        return true;
     }
 }

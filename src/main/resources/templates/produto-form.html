@@ -7,19 +7,19 @@
     <header th:include="_template :: header"></header>
 
         <section class="card form">
-            <h2> Cadastrar Cliente</h2>
+            <h2> Cadastro de Produto</h2>
 
-            <form class="form" th:action="@{/cliente}" method="post" th:object="${cliente}">
-                <label for="nome">Nome</label>
+            <form class="form" th:action="@{/produto}" method="post" th:object="${produto}">
+                <label for="descricaoResumida">Descrição Resumida</label>
                 <input
                     type="text"
-                    name="nome"
-                    id="nome"
-                    th:field="*{nome}"
-                    th:classappend="${#fields.hasErrors('nome')}? invalid"
+                    name="descricaoResumida"
+                    id="descricaoResumida"
+                    th:field="*{descricaoResumida}"
+                    th:classappend="${#fields.hasErrors('descricaoResumida')}? invalid"
                     autocomplete="off"
                 />
-                <span class="error" th:errors="*{nome}"></span>
+                <span class="error" th:errors="*{descricaoResumida}"></span>
 
                 <label for="descricao">Descricao</label>
                 <input
@@ -32,27 +32,27 @@
                 />
                 <span class="error" th:errors="*{descricao}"></span>
 
-                <label for="contato">Contato</label>
+                <label for="tipoProd">Tipo do Produto</label>
                 <input
                         type="text"
-                        name="contato"
-                        id="contato"
-                        th:field="*{contato}"
-                        th:classappend="${#fields.hasErrors('contato')}? invalid"
+                        name="tipoProduto"
+                        id="tipoProd"
+                        th:field="*{tipoProduto}"
+                        th:classappend="${#fields.hasErrors('tipoProduto')}? invalid"
                         autocomplete="off"
                 />
-                <span class="error" th:errors="*{contato}"></span>
+                <span class="error" th:errors="*{tipoProduto}"></span>
 
-                <label for="status">Status</label>
+                <label for="unidMed">Unidade de Medida</label>
                 <input
                         type="text"
-                        name="status"
-                        id="status"
-                        th:field="*{status}"
-                        th:classappend="${#fields.hasErrors('status')}? invalid"
+                        name="unidadeMedida"
+                        id="unidMed"
+                        th:field="*{unidadeMedida}"
+                        th:classappend="${#fields.hasErrors('unidadeMedida')}? invalid"
                         autocomplete="off"
                 />
-                <span class="error" th:errors="*{status}"></span>
+                <span class="error" th:errors="*{unidadeMedida}"></span>
 
 
                 <div class="form-buttons">
